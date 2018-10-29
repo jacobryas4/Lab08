@@ -27,7 +27,7 @@ class index {
                     <input type="email" id="email" placeholder="Email" required><br>
                     <input type="text" id="first-name" placeholder="First Name" required><br>
                     <input type="text" id="last-name" placeholder="Last Name" required><br>
-                    
+                    <input type="submit" id="submit" placeholder="Register"><br>
                 </div>
             </body>
         </html>
