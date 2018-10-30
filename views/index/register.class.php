@@ -7,14 +7,27 @@ class Register extends View{
         parent::header();
         ?>
         <div class="top-row">Create an account</div>
-        
-        <div class="middle-row">
-            <!--*************How do you know when to display different messages?**********************-->   
-        </div>
-        
-        <div class="bottom-row"></div>
-        
         <?php
+        //*****************What criteria for if?*****************
+        if(){
+            ?>
+            <div class="middle-row">
+                <p>Your account has been successfully created.</p>
+            </div>
+            <div class="bottom-row">
+                <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
+            </div>
+            <?php
+        } else {
+            ?>
+            <div class="middle-row">
+                <p>Your last attempt for creating an account failed. Please try again.</p>
+            </div>
+            <div class="bottom-row">
+                <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
+            </div>            
+            <?php
+        }
         //display footer
         parent::footer();
     }
