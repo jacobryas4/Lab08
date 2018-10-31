@@ -7,7 +7,7 @@
 * Description: Defines the index class, which contains the method for displaying the registration form
 */
 
-class Index extends View {
+class Index extends View{
     
     //create and display the registration form
     public function display(){
@@ -19,12 +19,12 @@ class Index extends View {
         <div class="middle-row">
             <form action="index.php?action=register" method="post">
                 <!--Get user registration data-->
-                <input type="text" id="username" placeholder="Username" required><br>
-                <input type="password" id="password" placeholder="Password, 5 characters minimum" minlength="5" required><br>
-                <input type="email" id="email" placeholder="Email" required><br>
-                <input type="text" id="first-name" placeholder="First Name" required><br>
-                <input type="text" id="last-name" placeholder="Last Name" required><br>
-                <input type="submit" id="submit" placeholder="Register"><br>
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password, 5 characters minimum" minlength="5" required><br>
+                <input type="email" name="email" placeholder="Email" required><br>
+                <input type="text" name="first-name" placeholder="First Name" required><br>
+                <input type="text" name="last-name" placeholder="Last Name" required><br>
+                <input type="submit" name="submit" placeholder="Register"><br>
             </form>
         </div>
         
@@ -33,7 +33,6 @@ class Index extends View {
         </div>
             
         <?php
-        
         
         //display footer
         parent::footer();

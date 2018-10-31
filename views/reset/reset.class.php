@@ -15,9 +15,9 @@ class Reset extends View {
                 <p>Please enter a new password. Username is not changeable.</p>
                 <form action="index.php?action=do_reset" method="post">
                     <!--***************Autofill works?*************************-->
-                    <input type="text" id="username" value="<?php $_COOKIE[$cookie_name] ?>" readonly><br>
-                    <input type="password" id="password" placeholder="Password" required><br>
-                    <input type="submit" id="submit" placeholder="Reset Password">
+                    <input type="text" name="username" value="<?php $_COOKIE[$cookie_name] ?>" readonly><br>
+                    <input type="password" name="password" placeholder="Password" required><br>
+                    <input type="submit" placeholder="Reset Password">
                 </form>    
             </div>
         
