@@ -17,7 +17,7 @@ class Index extends View {
         <div class="top-row">Create an account</div>
 
         <div class="middle-row">
-            <form action="index.php" method="post">
+            <form action="index.php?action=register" method="post">
                 <!--Get user registration data-->
                 <input type="text" id="username" placeholder="Username" required><br>
                 <input type="password" id="password" placeholder="Password, 5 characters minimum" minlength="5" required><br>
@@ -33,7 +33,6 @@ class Index extends View {
         </div>
             
         <?php
-        //*********************How to send action querystring variable? Where?*********************
         
         
         //display footer

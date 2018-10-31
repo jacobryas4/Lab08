@@ -8,8 +8,7 @@ class ResetConfirm extends View {
         ?>
         <div class="top-row">Reset Password</div>
         <?php
-        //*****************What criteria for if?*****************
-        if(){
+        if($message == "pass"){
             ?>
             <div class="middle-row">
                 <p>You have successfully reset your password.</p>
@@ -32,5 +31,4 @@ class ResetConfirm extends View {
         //display footer
         parent::footer();
     }
-}
 }

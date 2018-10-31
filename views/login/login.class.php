@@ -10,7 +10,6 @@ class Login extends View{
         <div class="middle-row">
             <!--Get user login info-->
             <form action="index.php" method="post">
-                <!--******************Validation occurs in controller?*****************-->
                 <input type="text" id="username" placeholder="Username" required><br>
                 <input type="password" id="password" placeholder="Password" required><br>
                 <input type="submit" id="submit" placeholder="Login">

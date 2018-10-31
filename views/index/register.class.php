@@ -8,8 +8,8 @@ class Register extends View{
         ?>
         <div class="top-row">Create an account</div>
         <?php
-        //*****************What criteria for if?*****************
-        if(){
+        //**********************Message value is placeholder***********************
+        if($message == "pass"){
             ?>
             <div class="middle-row">
                 <p>Your account has been successfully created.</p>

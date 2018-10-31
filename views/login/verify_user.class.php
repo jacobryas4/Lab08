@@ -7,8 +7,8 @@ class VerifyUser extends View {
         ?>
         <div class="top-row">Login</div>
         <?php
-        //*****************What criteria for if?*****************
-        if(){
+        //*****************Message value is placeholder*****************
+        if($message == "pass"){
             ?>
         
             <div class="middle-row">
