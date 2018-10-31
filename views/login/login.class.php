@@ -9,7 +9,7 @@ class Login extends View{
         
         <div class="middle-row">
             <!--Get user login info-->
-            <form action="index.php" method="post">
+            <form action="index.php?action=verify" method="post">
                 <input type="text" name="username" placeholder="Username" required><br>
                 <input type="password" name="password" placeholder="Password" required><br>
                 <input type="submit" name="submit" placeholder="Login">
