@@ -1,5 +1,10 @@
 <?php
-
+/*
+* Author: Adam Patrick
+* Date: 10/29/18
+* Name: verify_user.class.php
+* Description: displays success of fail messages for logins
+*/
 class VerifyUser extends View {
     public function display($message){
         //display header
@@ -7,7 +12,7 @@ class VerifyUser extends View {
         ?>
         <div class="top-row">Login</div>
         <?php
-        //*****************Message value is placeholder*****************
+        //display success message and corresponding links if login is successful
         if($message == true){
             ?>
         
@@ -21,6 +26,7 @@ class VerifyUser extends View {
             </div>
         
             <?php      
+        //display fail message and corresponding links if login fails
         } else {
             ?>
             

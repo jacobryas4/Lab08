@@ -17,6 +17,7 @@ class Index extends View{
         <div class="top-row">Create an account</div>
 
         <div class="middle-row">
+            <!--post the data to the model-->
             <form action="index.php?action=register" method="post">
                 <!--Get user registration data-->
                 <input type="text" name="username" placeholder="Username" required><br>
@@ -27,7 +28,7 @@ class Index extends View{
                 <input type="submit" name="submit" placeholder="Register"><br>
             </form>
         </div>
-        
+        <!--display links-->
         <div class="bottom-row">
             <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
         </div>
