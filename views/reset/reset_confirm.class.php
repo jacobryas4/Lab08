@@ -8,7 +8,7 @@ class ResetConfirm extends View {
         ?>
         <div class="top-row">Reset Password</div>
         <?php
-        if($message == "pass"){
+        if($message == true){
             ?>
             <div class="middle-row">
                 <p>You have successfully reset your password.</p>

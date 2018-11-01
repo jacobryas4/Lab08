@@ -8,7 +8,7 @@ class VerifyUser extends View {
         <div class="top-row">Login</div>
         <?php
         //*****************Message value is placeholder*****************
-        if($message == "pass"){
+        if($message == true){
             ?>
         
             <div class="middle-row">
