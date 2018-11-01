@@ -15,10 +15,12 @@ $user_controller = new UserController();
 
 //add your code below this line to complete this file
 //establish the all variable to perform these functions below
-$action = "all";
+$action = "index";
+
+
 
 //filter and sanitize input
-if (isset(filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING)) && filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) != '') {
+if (filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) && filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) != '') {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
 

@@ -1,10 +1,6 @@
 <?php
-/*
-* Author: Adam Patrick
-* Date: 10/29/18
-* Name: reset_confirm.class.php
-* Description: displays messages based on whether the password reset attempt was succesful or not
-*/
+
+
 class ResetConfirm extends View {
     public function display($message){
         //display header
@@ -12,8 +8,7 @@ class ResetConfirm extends View {
         ?>
         <div class="top-row">Reset Password</div>
         <?php
-        //if password reset was successful display success message and respective links
-        if($message == true){
+        if($message == "pass"){
             ?>
             <div class="middle-row">
                 <p>You have successfully reset your password.</p>
@@ -23,7 +18,6 @@ class ResetConfirm extends View {
                 <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
             </div>
             <?php
-        //if password reset failed display fail message and respective links
         } else {
             ?>
             <div class="middle-row">

@@ -24,13 +24,13 @@ class UserModel {
         $username    = $_POST["username"];
         $password    = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $email       = $_POST["email"];
-        $firstName   = $_POST["firstname"];
-        $lastName    = $_POST["lastname"];
+        $firstName   = $_POST["first-name"];
+        $lastName    = $_POST["last-name"];
         
         // build SQL statement
         // might have to add '' around variables
-        $sql = "INSERT INTO users (username, password, email, firstname, lastname) VALUES (" . $username . 
-                "," . $password . "," . $email . "," . $firstName . "," . $lastName . ")"; 
+        $sql = "INSERT INTO users (username, password, email, firstname, lastname) VALUES ('" . $username . 
+                "','" . $password . "','" . $email . "','" . $firstName . "','" . $lastName . "')"; 
         
         // insert into table and return true/false depending on success
         if ($this->dbConnect->query($sql) === TRUE) {
@@ -49,23 +49,40 @@ class UserModel {
         $username = $_POST["username"];
         $password = $_POST["password"];
         
-        // build SQL statement
-        // START HERE
-        $sql = "SELECT * WHERE (username = '" . $username . "') AND ( password = '" . $password . "' )";
-        $result = $this->dbConnect->query($sql);
+        $sql = "SELECT * FROM users WHERE (username = '" . $username . "')";
+        $result = mysqli_query($this->dbConnect,$sql);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $hash = $row['password'];
         
-        // run query and return true or false depending on success
-        if ($result->num_rows > 0) {
-            setcookie($user, $username);
+        
+        
+        // build SQL statement
+//        $sql = "SELECT * WHERE (username = '" . $username . "') AND ( password = '" . $password . "' )";
+//        $result = mysqli_query($this->dbConnect,$sql);
+        
+        if (password_verify($password, $hash )) {
+            setcookie("user", $username);
             return true;
         } else {
+            echo $hash;
             return false;
         }
+         
+        
+        
+        // run query and return true or false depending on success
+//        if ($result->num_rows > 0) {
+//            setcookie($user, $username);
+//            return true;
+//        } else {
+//            
+//            return false;
+//        }
         
     }
     
     public function logout() {
-        setcookie($user, "", time()-3600, '/');
+        unset($_COOKIE['user']);
         return true;
     }
     
@@ -73,7 +90,7 @@ class UserModel {
         $username = $_POST["username"];
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         
-        $sql = "UPDATE users SET password=" . $password . " WHERE username=" . $username;
+        $sql = "UPDATE users SET password='" . $password . "' WHERE username='" . $username . "'";
         
         if ($this->dbConnect->query($sql) === TRUE) {
             return true;

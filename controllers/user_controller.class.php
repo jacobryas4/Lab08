@@ -48,7 +48,7 @@ class UserController {
         $response = $this->user_model->verify_user();
 
         //create a Verify object, output the response if as true or false to the user by passing the $response variable through the display method.
-        $view = new Verify();
+        $view = new VerifyUser();
         $view->display($response);
     }
 
@@ -72,10 +72,10 @@ class UserController {
     public function do_reset() {
 
         //create a boolean that stores whether the user managed to sucessfully reset
-        $response = $this->user_model->do_reset();
+        $response = $this->user_model->reset_password();
 
         //pass a variable into the display method to show the user whether they successfully invoked the display method
-        $view = new DoReset();
+        $view = new ResetConfirm();
         $view->display($response);
     }
 
@@ -83,7 +83,7 @@ class UserController {
     public function error($message) {
 
         //create an error object, then display the error message to the user
-        $view = new Error();
+        $view = new UserError();
         $view->display($message);
     }
 
