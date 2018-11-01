@@ -1,10 +1,11 @@
 <?php
 
-/**
- * Description of user_model
- *
- * @author jacobbryant
- */
+/*
+* Author: Jacob Bryant
+* Date: 10/31/18
+* Name: user_model.class.php
+* Description: Handles data manipulation too and from the database
+*/
 class UserModel {
     
     // attributes
@@ -49,6 +50,7 @@ class UserModel {
         $username = $_POST["username"];
         $password = $_POST["password"];
         
+        //go into the database and check for username
         $sql = "SELECT * FROM users WHERE (username = '" . $username . "')";
         $result = mysqli_query($this->dbConnect,$sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -56,9 +58,6 @@ class UserModel {
         
         
         
-        // build SQL statement
-//        $sql = "SELECT * WHERE (username = '" . $username . "') AND ( password = '" . $password . "' )";
-//        $result = mysqli_query($this->dbConnect,$sql);
         
         if (password_verify($password, $hash )) {
             setcookie("user", $username);
@@ -68,30 +67,27 @@ class UserModel {
             return false;
         }
          
-        
-        
-        // run query and return true or false depending on success
-//        if ($result->num_rows > 0) {
-//            setcookie($user, $username);
-//            return true;
-//        } else {
-//            
-//            return false;
-//        }
+
         
     }
     
+    //unset a cookie to log the user out
     public function logout() {
         unset($_COOKIE['user']);
         return true;
     }
     
+    //function to reset the user's password
     public function reset_password() {
         $username = $_POST["username"];
+        
+        //make sure the new password is also hashed.
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         
+        //SQL statement to find that exact user's credentials
         $sql = "UPDATE users SET password='" . $password . "' WHERE username='" . $username . "'";
         
+        //query to determine the user's credentials matched.
         if ($this->dbConnect->query($sql) === TRUE) {
             return true;
         } else {

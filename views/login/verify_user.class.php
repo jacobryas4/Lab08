@@ -1,5 +1,10 @@
 <?php
-
+/*
+* Author: Adam Patrick
+* Date: 10/29/18
+* Name: verify_user.class.php
+* Description: Display a message about whether the login succeeded or failed
+*/
 class VerifyUser extends View {
     public function display($message){
         //display header
@@ -7,8 +12,8 @@ class VerifyUser extends View {
         ?>
         <div class="top-row">Login</div>
         <?php
-        //*****************Message value is placeholder*****************
-        if($message == "pass"){
+        //if the login was successful display the corresponding message and links
+        if($message == true){
             ?>
         
             <div class="middle-row">
@@ -21,6 +26,7 @@ class VerifyUser extends View {
             </div>
         
             <?php      
+        //if the login was unsuccessful display the corresponding message and links
         } else {
             ?>
             
